@@ -3,7 +3,6 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
   - python
   - javascript
 
@@ -19,106 +18,81 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Access API. You can use our API to access the full suite of endpoints which provide you with the financial tools to provide value to your users
 
 We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
 ```python
-import kittn
+import accessAPI
 
-api = kittn.authorize('meowmeowmeow')
+api = accessAPI.authorize('secret_key');
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: secret_key"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const accessAPI = require('accessapi');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = accessAPI.authorize('secret_key');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `secrey_key` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Access API uses API keys to allow access to the API. You can register a new Access API key at our [developer portal](http://example.com/developers).
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+The Access API expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+`Authorization: secret_key`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>secret_key</code> with your personal API key.
 </aside>
 
-# Kittens
+# Account
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+## Get Account
 
 ```python
-import kittn
+import accessAPI
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+api = accessAPI.authorize('secret_key')
+api.account.get(accountNumber='2342242232');
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "http://api.access.com/account/2342242232"
+  -H "Authorization: secret_key"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const api = require('accessapi');
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+let api = accessapi.authorize('secret_key');
+let kittens = api.account.get('2342242232');
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "id": 23234294,
+    "name": "Funmilayo Agbaje",
+    "opened": "23-01-2013",
+    "balance": 4000
   }
-]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves a particualar account.
 
-### HTTP Request
+<!-- ### HTTP Request
 
 `GET http://example.com/api/kittens`
 
@@ -235,5 +209,5 @@ This endpoint deletes a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+ID | The ID of the kitten to delete -->
 
